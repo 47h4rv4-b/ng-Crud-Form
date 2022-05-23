@@ -1,0 +1,23 @@
+Api name :<input [(ngModel)]="Api.Apiname" type="text"/> <br>
+API URL  :<input [(ngModel)]="Api.Apiurl" type="url"/> <br>
+<input (click)="Add()" type="button" value="Add"/><br>
+
+
+<!-- displaying data via expressions -->
+{{Api.Apiname}}<br>
+{{Api.Apiurl}}<br>
+
+
+<!-- Now that ApiDataStore, iterate it and display it, after Add() -->
+<table>
+    <tr >
+        <td>Api Name</td>
+        <td>Api Url</td>
+    </tr>
+
+    <tr *ngFor="let data of ApiDataStore">
+        <td>{{data.Apiname}}</td>
+        <td>{{data.Apiurl}}</td>
+    </tr>
+
+</table>
