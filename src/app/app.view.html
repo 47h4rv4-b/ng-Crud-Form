@@ -1,8 +1,12 @@
-Api name :<input [(ngModel)]="Api.Apiname" type="text"/> <br>
-API URL  :<input [(ngModel)]="Api.Apiurl" type="url"/> <br>
-<input (click)="Add()" type="button" value="Add"/><br>
+<form [formGroup]="Api.formGroup">
 
-
+    Api name :<input formControlName="apiNameControl" [(ngModel)]="Api.Apiname" type="text"/> <br>
+    API URL  :<input formControlName="apiUrlControl" [(ngModel)]="Api.Apiurl" type="url"/> <br>
+    <input [disabled]="!(Api.formGroup.valid)" (click)="Add()" type="button" value="Add"/><br>
+</form>
+<br>
+<div [hidden]="!(Api.formGroup.controls['apiUrlControl'].hasError('pattern'))">URL is not proper</div>
+<br>
 <!-- displaying data via expressions -->
 {{Api.Apiname}}<br>
 {{Api.Apiurl}}<br>
