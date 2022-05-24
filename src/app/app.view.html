@@ -1,27 +1,47 @@
-<form [formGroup]="Api.formGroup">
+<head>
 
-    Api name :<input formControlName="apiNameControl" [(ngModel)]="Api.Apiname" type="text"/> <br>
-    API URL  :<input formControlName="apiUrlControl" [(ngModel)]="Api.Apiurl" type="url"/> <br>
-    <input [disabled]="!(Api.formGroup.valid)" (click)="Add()" type="button" value="Add"/><br>
-</form>
-<br>
-<div [hidden]="!(Api.formGroup.controls['apiUrlControl'].hasError('pattern'))">URL is not proper</div>
-<br>
-<!-- displaying data via expressions -->
-{{Api.Apiname}}<br>
-{{Api.Apiurl}}<br>
+ <script src="angularjs/angular.min.js" type="text/javascript"></script>
 
 
-<!-- Now that ApiDataStore, iterate it and display it, after Add() -->
-<table>
-    <tr >
-        <td>Api Name</td>
-        <td>Api Url</td>
-    </tr>
+</head>
 
-    <tr *ngFor="let data of ApiDataStore">
-        <td>{{data.Apiname}}</td>
-        <td>{{data.Apiurl}}</td>
-    </tr>
+<body>
+    <body ng-app="myapp" ng-controller="tableController">
 
-</table>
+    <form [formGroup]="Api.formGroup">
+
+        Api name :<input formControlName="apiNameControl" [(ngModel)]="Api.Apiname" type="text"/> <br>
+        API URL  :<input formControlName="apiUrlControl" [(ngModel)]="Api.Apiurl" type="url"/> <br>
+        <span><input [disabled]="!(Api.formGroup.valid)" (click)="Add()" type="button" value="Add"/>
+        </span>
+    </form>
+    <br>
+    <div [hidden]="!(Api.formGroup.controls['apiUrlControl'].hasError('pattern'))">URL is not proper</div>
+    <br>
+    <!-- displaying data via expressions -->
+    {{Api.Apiname}}<br>
+    {{Api.Apiurl}}<br>
+    
+    
+    <!-- Now that ApiDataStore, iterate it and display it, after Add() -->
+    <table class="table table-stripe" >
+
+        <tr >
+            <td>Api Name</td>
+            <td>Api Url</td>
+            <td>Action</td>
+        </tr>
+    
+        <tr *ngFor="let data of ApiDataStore">
+            <td>{{data.Apiname}}</td>
+            <td>{{data.Apiurl}}</td>
+            <!-- Add delete button -->
+            <td><button id="remove" (click)="deleteRow(data)">DELETE </button></td>
+
+            <!-- <td> <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button> </td> -->
+        </tr>
+    
+    </table>
+
+    
+</body>

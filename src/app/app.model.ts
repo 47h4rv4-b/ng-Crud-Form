@@ -1,6 +1,6 @@
 import { NgForm, FormGroup,FormControl,Validators,FormBuilder } from "@angular/forms";
 
-export class Api{
+export class Form{
     Apiname:string ="";
     Apiurl:string="";
 

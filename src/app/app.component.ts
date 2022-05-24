@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Api} from './app.model'
+import {Form} from './app.model'
 @Component({
   selector: 'app-root',
   templateUrl: './app.view.html',
@@ -7,12 +7,16 @@ import {Api} from './app.model'
 })
 export class AppComponent {
   title = 'api-form';
-  Api : Api=new Api();
+  Api : Form=new Form();
 
-  ApiDataStore: Array<Api>= new Array<Api>();
+  ApiDataStore: Array<Form>= new Array<Form>();/**add service ,routing, delete button*/
   Add(){
     this.ApiDataStore.push(this.Api);  /**first add the Api data */
-    this.Api= new Api(); /**Then clear old i/ps */
+    this.Api= new Form(); /**Then clear old i/ps */
 
   }
+  deleteRow(d: Form){
+    const index = this.ApiDataStore.indexOf(d);
+    this.ApiDataStore.splice(index, 1);
+}
 }
