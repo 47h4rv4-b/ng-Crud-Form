@@ -11,7 +11,7 @@ import { FormsModule } from "@angular/forms" /**for ngModel */
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule /**for ngModel */
 
   ],
   providers: [],
