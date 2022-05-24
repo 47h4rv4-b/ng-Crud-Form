@@ -9,8 +9,15 @@ export class AddService {
 
 
   ApiDataStore: Array<Form>= new Array<Form>();/**add service ,routing, delete button*/
-  Add(){
-    this.ApiDataStore.push(this.Api);  /**first add the Api data */
+  Add(data:Form){
+    this.ApiDataStore.push(data);  /**first add the Api data */
     this.Api= new Form(); /**Then clear old i/ps */
+    console.log(data);
   
-}}
+}
+  getData(){
+    return this.ApiDataStore;
+  }
+
+
+}

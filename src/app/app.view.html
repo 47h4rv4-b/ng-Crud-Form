@@ -7,26 +7,14 @@
 
 <body>
 
-    <body ng-app="myapp" ng-controller="tableController">
-
-        <form [formGroup]="Api.formGroup">
-
-            Api name :<input formControlName="apiNameControl" [(ngModel)]="Api.Apiname" type="text" /> <br>
-            API URL :<input formControlName="apiUrlControl" [(ngModel)]="Api.Apiurl" type="url" /> <br>
-            <span><input [disabled]="!(Api.formGroup.valid)" (click)="Add()" type="button" value="Add" />
-            </span>
-        </form>
-        <br>
-        <div [hidden]="!(Api.formGroup.controls['apiUrlControl'].hasError('pattern'))">URL is not proper</div>
-        <br>
-        <!-- displaying data via expressions -->
-        {{Api.Apiname}}<br>
-        {{Api.Apiurl}}<br>
+ 
 
         <br>
-        <a [routerLink]="('add/999')" class="btn btn-primary">Add a new Api</a>
+        <a [routerLink]="['./add']" class="btn btn-primary">Add a new Api</a>
         <br>
+        <router-outlet>
 
+        </router-outlet>
         <!-- Now that ApiDataStore, iterate it and display it, after Add() -->
         <table class="table table-stripe">
 
@@ -36,11 +24,11 @@
                 <td>Action</td>
             </tr>
 
-            <tr *ngFor="let data of ApiDataStore">
+            <tr *ngFor="let data of addService.getData()">
                 <td>{{data.Apiname}}</td>
                 <td>{{data.Apiurl}}</td>
                 <!-- Add delete button -->
-                <td><button id="remove" (click)="deleteRow(data)">DELETE </button></td>
+                <!-- <td><button id="remove" (click)="deleteRow(data)">DELETE </button></td> -->
 
                 <!-- <td> <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button> </td> -->
             </tr>

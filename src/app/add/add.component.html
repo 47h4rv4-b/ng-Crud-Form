@@ -1,1 +1,15 @@
-<h1>add works!</h1>
+<body ng-app="myapp" ng-controller="tableController">
+
+    <form [formGroup]="Api.formGroup">
+
+        Api name :<input formControlName="apiNameControl" [(ngModel)]="Api.Apiname" type="text" /> <br>
+        API URL :<input formControlName="apiUrlControl" [(ngModel)]="Api.Apiurl" type="url" /> <br>
+        <span><input [disabled]="!(Api.formGroup.valid)" (click)="func()" type="button" value="Add" />
+        </span>
+    </form>
+    <br>
+    <div [hidden]="!(Api.formGroup.controls['apiUrlControl'].hasError('pattern'))">URL is not proper</div>
+    <br>
+    <!-- displaying data via expressions -->
+    {{Api.Apiname}}<br>
+    {{Api.Apiurl}}<br>
