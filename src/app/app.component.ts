@@ -17,6 +17,12 @@ export class AppComponent {
     this.Api= new Form(); /**Then clear old i/ps */
 
   }
+  deleteRow(data: Form){
+    const index = this.addService.getData().indexOf(data);
+    this.addService.getData().splice(index, 1);
+
+
+  }
 //   deleteRow(d: Form){
 //     const index = this.ApiDataStore.indexOf(d);
 //     this.ApiDataStore.splice(index, 1);

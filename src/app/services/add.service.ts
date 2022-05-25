@@ -12,8 +12,8 @@ export class AddService {
   Add(data:Form){
     this.ApiDataStore.push(data);  /**first add the Api data */
     this.Api= new Form(); /**Then clear old i/ps */
-    console.log(data);
-    console.log(this.ApiDataStore)
+    // console.log(data);
+    // console.log(this.ApiDataStore)
   
 }
   getData(){
