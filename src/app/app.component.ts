@@ -21,8 +21,8 @@ export class AppComponent {
 //     const index = this.ApiDataStore.indexOf(d);
 //     this.ApiDataStore.splice(index, 1);
 // }
+constructor(public addService : AddService){
 
-  constructor(public addService : AddService){
 
     
 

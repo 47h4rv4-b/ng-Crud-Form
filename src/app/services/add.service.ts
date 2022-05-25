@@ -13,6 +13,7 @@ export class AddService {
     this.ApiDataStore.push(data);  /**first add the Api data */
     this.Api= new Form(); /**Then clear old i/ps */
     console.log(data);
+    console.log(this.ApiDataStore)
   
 }
   getData(){

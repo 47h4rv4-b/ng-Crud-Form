@@ -12,15 +12,18 @@ export class AddComponent implements OnInit {
   Api : Form=new Form();
 
   constructor(public add: AddService) { 
-    
-
-    
-
   
   }
   
-  func(){
-    this.add.Add(this.Api)
+  func() {
+
+    this.add.Add(this.Api);
+    
+    this.Api = new Form();
+    
+    
+    
+  
 
 
   }
