@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AddComponent } from './add/add.component' /**for ngModel */
+import { AddComponent } from './add/add.component';
+import { TableComponent } from './table/table.component' /**for ngModel */
 @NgModule({
   declarations: [
     AppComponent,
-    AddComponent
+    AddComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

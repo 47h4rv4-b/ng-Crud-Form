@@ -16,24 +16,6 @@
 
         </router-outlet>
         <!-- Now that ApiDataStore, iterate it and display it, after Add() -->
-        <table class="table table-stripe">
-
-            <tr>
-                <td>Api Name</td>
-                <td>Api Url</td>
-                <td>Action</td>
-            </tr>
-
-            <tr *ngFor="let data of addService.getData()">
-                <td>{{data.Apiname}}</td>
-                <td>{{data.Apiurl}}</td>
-                <!-- Add delete button -->
-                <td><button id="remove" (click)="deleteRow(data)">DELETE </button></td>
-
-                <!-- <td> <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button> </td> -->
-            </tr>
-
-        </table>
-
+        <app-table></app-table>
 
     </body>
