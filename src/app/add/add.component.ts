@@ -8,6 +8,8 @@ import { DataShare } from '../services/data-share.service';
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
+
+
 export class AddComponent implements OnInit {
 
   Api : Form=new Form();
@@ -19,8 +21,11 @@ export class AddComponent implements OnInit {
 
   func() {
 
-    this.add.Add(this.Api);
-    
+    // this.add.Add(this.Api).subscribe((callback)=>{
+    //   console.log(callback);
+    // });
+    console.log("hiiiiii")
+    this.add.Add(this.Api);                             //Douche missing this lineeee!!!!
     this.Api = new Form();
     this.DataShare.sendData('NOTIFICATION:API ADDED!!');
 
