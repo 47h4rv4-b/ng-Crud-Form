@@ -10,23 +10,27 @@ import { Subscription } from 'rxjs';
 })
 export class TableComponent implements OnInit {
   Api : Form=new Form();
-  data: any[] = [];
+  array: any = [];
   subscription: Subscription | undefined;
   constructor(public addService : AddService, private DataShare: DataShare) { 
 
-    this.subscription = this.DataShare.getData().subscribe(res => {
+    this.subscription = this.addService.getData().subscribe((res:any) => {
       if (res) {
-          this.data.push(res);
+          
+          this.array = res.posts;
+          console.log(this.array);
       } else {
-          this.data = [];
+          this.array = [];
       }
   });
 
 
   }
-  deleteRow(data: Form){
-    const index = this.addService.getData().indexOf(data);
-    this.addService.getData().splice(index, 1);
+  deleteRow(data: any){
+    // const index = this.addService.getData().indexOf(data);
+    // this.addService.getData().splice(index, 1);
+    console.log("1234567")
+    this.addService.delete(data._id);
 
 
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Form } from '../app.model';
 
 import { HttpClient } from '@angular/common/http';
+import { Data } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class AddService {
   Api : Form=new Form();
 
-  base_uri="http://localhost:8080/post";
+  base_uri="http://localhost:8080/";
+
 
 
   constructor(private httpCLient: HttpClient){
@@ -30,13 +32,29 @@ export class AddService {
 
     // console.log(data);
     // console.log(this.ApiDataStore)
-    this.httpCLient.post(this.base_uri, backend ).subscribe((callback)=>{/**MPPPPPP :Subscribe method useful to see data */
+    this.httpCLient.post(this.base_uri+"post", backend ).subscribe((callback)=>{/**MPPPPPP :Subscribe method useful to see data */
       console.log(callback);
 
 
     })
+  }
 
-    // this.httpCLient.get(this.base_uri).subscribe((callback:any)=>{
+    delete(id: string){
+    
+      this.httpCLient.delete(this.base_uri+"delete/"+id).subscribe((callback)=>{
+        console.log(callback);
+      });
+      
+
+    }
+
+
+    getData(){
+      return this.httpCLient.get(this.base_uri+"post");
+    }
+
+
+
     //   console.log(callback);
       
 
@@ -44,10 +62,7 @@ export class AddService {
     
 
 }
-  getData(){
-    return this.ApiDataStore;
-  }
+  // getData(){
+  //   return this.ApiDataStore;
+  // }
 
-
-
-}

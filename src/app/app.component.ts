@@ -20,8 +20,8 @@ export class AppComponent {
 
   }
   deleteRow(data: Form){
-    const index = this.addService.getData().indexOf(data);
-    this.addService.getData().splice(index, 1);
+    // const index = this.addService.getData().indexOf(data);
+    // this.addService.getData().splice(index, 1);
 
 
   }

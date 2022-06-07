@@ -6,16 +6,16 @@
         <td>Action</td>
     </tr>
 
-    <tr *ngFor="let data of addService.getData()">
-        <td>{{data.Apiname}}</td>
-        <td>{{data.Apiurl}}</td>
+    <tr *ngFor="let data of array">
+        <td>{{data.title}}</td>
+        <td>{{data.body}}</td>
         <!-- Add delete button -->
         <td><button id="remove" (click)="deleteRow(data)">DELETE </button></td>
 
         <!-- <td> <button class='btn btn-danger' ng-click="deleteRow($index)">Delete</button> </td> -->
     </tr>
     
-    <div *ngFor="let message of data" class="alert alert-sm alert-info">{{message.text}}</div>
+    <div *ngFor="let message of array" class="alert alert-sm alert-info">{{message.text}}</div>
 
     
 
