@@ -11,8 +11,10 @@ import { Subscription } from 'rxjs';
 export class TableComponent implements OnInit {
   Api : Form=new Form();
   array: any = [];
+
   subscription: Subscription | undefined;
   constructor(public addService : AddService, private DataShare: DataShare) { 
+
 
  
 

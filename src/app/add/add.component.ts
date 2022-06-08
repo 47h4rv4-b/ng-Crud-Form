@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Form } from '../app.model';
 import { AddService } from '../services/add.service';
 import { DataShare } from '../services/data-share.service';
+
+import {Location} from '@angular/common';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -13,8 +16,9 @@ import { DataShare } from '../services/data-share.service';
 export class AddComponent implements OnInit {
 
   Api : Form=new Form();
+  notification_msg="";
 
-  constructor(public add: AddService, private DataShare: DataShare) { 
+  constructor(public add: AddService, private DataShare: DataShare,private _location: Location ){ 
   
   }
 
@@ -27,7 +31,16 @@ export class AddComponent implements OnInit {
     console.log("hiiiiii")
     this.add.Add(this.Api);                             //Douche missing this lineeee!!!!
     this.Api = new Form();
-    this.DataShare.sendData('NOTIFICATION:API ADDED!!');
+    // this.DataShare.sendData('NOTIFICATION:API ADDED!!');
+    this.notification_msg="NOTIFICATION:API ADDED!!";
+
+    setTimeout(()=>{
+
+      this._location.back();
+      this.notification_msg=""
+
+
+    },1000);
 
 
 
